@@ -48,10 +48,10 @@ Each mod's version lives in one place: the `"version"` field of `<mod>/.claude-p
 The top of each mod's `README.md` shows it as a badge:
 
 ```markdown
-[![version](https://img.shields.io/badge/version-0.3.1-blue)](.claude-plugin/plugin.json)
+[![version](https://img.shields.io/badge/version-X.Y.Z-blue)](.claude-plugin/plugin.json)
 ```
 
-You never edit the number in the badge by hand. The GitHub Action in `.github/workflows/readme-version.yml` runs after every push that changes a `plugin.json` or a README. It copies each mod's version into its badge and commits the change as `github-actions[bot]`. To bump a version, change `plugin.json`, commit and push. About a minute later the badge shows the new number.
+You never edit the number in the badge by hand. The GitHub Action in `.github/workflows/readme-version.yml` runs after every push that changes a `plugin.json` or a README. It copies each mod's version into its badge, and into any sample `Version:` line (as in `claude plugin list` output), and commits the change as `github-actions[bot]`. To bump a version, change `plugin.json`, commit and push. About a minute later the badge shows the new number.
 
 Because that commit is made on GitHub, run `git pull` before your next change, so your local copy has it.
 
