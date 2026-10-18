@@ -1,6 +1,6 @@
 # claude-mods
 
-latingate's personal Claude Code mods. The repository is a plugin **marketplace**: `.claude-plugin/marketplace.json` lists every mod, and each mod lives in its own folder.
+Claude Code mods by latingate, free for anyone to install. The repository is a plugin **marketplace**: `.claude-plugin/marketplace.json` lists every mod, and each mod lives in its own folder.
 
 | Mod | What it does |
 | --- | --- |
@@ -8,14 +8,7 @@ latingate's personal Claude Code mods. The repository is a plugin **marketplace*
 
 ## Installing a mod on a computer
 
-The repository is private. On each computer, sign in once:
-
-```sh
-gh auth login
-gh auth setup-git
-```
-
-Then, at the Claude Code prompt in a terminal:
+The repository is public, so no GitHub account or login is needed. At the Claude Code prompt in a terminal:
 
 ```
 /plugin install <mod> --marketplace latingate/claude-mods

@@ -1,7 +1,7 @@
 {
   "name": "claude-mods",
   "owner": { "name": "latingate" },
-  "description": "latingate's personal Claude Code mods",
+  "description": "Claude Code mods by latingate",
   "plugins": [
     { "name": "yellow-prompt", "source": "./yellow-prompt", "description": "Draws your own prompts in colour (yellow by default, configurable), in the prompt box and in the transcript" }
   ]

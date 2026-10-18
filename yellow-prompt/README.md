@@ -21,18 +21,7 @@ The colours and the border can be changed. See [Settings](#settings).
 
 ## Install
 
-`latingate/claude-mods` is a **private** repository, so each computer needs a GitHub login that can read it before it can install.
-
-### 1. One-time GitHub setup on the computer
-
-```sh
-gh auth login      # sign in as latingate
-gh auth setup-git  # let git use that login for github.com
-```
-
-The install never asks for credentials. It uses whatever git already has. An SSH key for github.com also works.
-
-### 2. Install the mod
+`latingate/claude-mods` is public, so no GitHub account or login is needed.
 
 At the Claude Code prompt in a terminal:
 
@@ -109,7 +98,20 @@ After a new version is pushed (with `version` raised in `.claude-plugin/plugin.j
 
 The first command fetches the marketplace and installs the new version. It reports `1 plugin bumped`. The second loads that version into the session you're in. New sessions load it by themselves. Your settings are kept across updates.
 
-To check which version is installed, run `claude plugin list` from a shell.
+### Checking the version
+
+**Installed on this computer:** run `claude plugin list` from a shell (or `! claude plugin list` at the Claude Code prompt). Look for the `Version:` line:
+
+```
+  ❯ yellow-prompt@claude-mods
+    Version: 0.3.1
+    Scope: user
+    Status: ✔ enabled
+```
+
+You can also run `/plugin`, open **Installed**, and select `yellow-prompt` to see its details.
+
+**Latest available:** the `version` field in [`yellow-prompt/.claude-plugin/plugin.json`](https://github.com/latingate/claude-mods/blob/main/yellow-prompt/.claude-plugin/plugin.json) on GitHub. If the installed version is lower, run the two update commands above.
 
 ## Disable, re-enable or remove
 
