@@ -1,0 +1,39 @@
+# Keeps the version badge at the top of each mod's README.md equal to the
+# "version" in that mod's .claude-plugin/plugin.json.
+name: Sync README version badges
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '*/.claude-plugin/plugin.json'
+      - '*/README.md'
+      - '.github/workflows/readme-version.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Write each mod's version into its README badge
+        run: |
+          for manifest in */.claude-plugin/plugin.json; do
+            readme="${manifest%%/*}/README.md"
+            [ -f "$readme" ] || continue
+            # shields.io static badges escape a dash as a double dash
+            version=$(jq -r .version "$manifest" | sed 's/-/--/g')
+            sed -i -E "s#(https://img\.shields\.io/badge/version-)[^ )]*(-blue\))#\1${version}\2#" "$readme"
+          done
+
+      - name: Commit if a badge changed
+        run: |
+          git diff --quiet && exit 0
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -am "Sync README version badges with plugin.json"
+          git push

@@ -1,6 +1,6 @@
 # yellow-prompt
 
-[![version](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Flatingate%2Fclaude-mods%2Fmain%2Fyellow-prompt%2F.claude-plugin%2Fplugin.json&query=%24.version&label=version)](.claude-plugin/plugin.json)
+[![version](https://img.shields.io/badge/version-0.3.1-blue)](.claude-plugin/plugin.json)
 
 Makes the prompts you type easy to spot when you scroll back through a Claude Code conversation.
 

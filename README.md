@@ -41,6 +41,22 @@ In the desktop app: **+** next to the prompt box → **Plugins**, then turn the 
 
 These only change the computer you run them on. The repository and your other computers are untouched.
 
+## Version badges
+
+Each mod's version lives in one place: the `"version"` field of `<mod>/.claude-plugin/plugin.json`. Claude Code reads it from there.
+
+The top of each mod's `README.md` shows it as a badge:
+
+```markdown
+[![version](https://img.shields.io/badge/version-0.3.1-blue)](.claude-plugin/plugin.json)
+```
+
+You never edit the number in the badge by hand. The GitHub Action in `.github/workflows/readme-version.yml` runs after every push that changes a `plugin.json` or a README. It copies each mod's version into its badge and commits the change as `github-actions[bot]`. To bump a version, change `plugin.json`, commit and push. About a minute later the badge shows the new number.
+
+Because that commit is made on GitHub, run `git pull` before your next change, so your local copy has it.
+
+A new mod gets the badge by putting the line above under its README's title, with any number. The Action corrects the number on the next push.
+
 ## Adding a new mod
 
 ### 1. Build it
