@@ -1,6 +1,6 @@
 {
   "name": "yellow-prompt",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Draws your own prompts in color (yellow by default), in the prompt box and in the transcript",
   "author": { "name": "latingate" },
   "userConfig": {
