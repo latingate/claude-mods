@@ -111,5 +111,5 @@ A mod can let each person pick their own settings, such as colours, by declaring
 Start a session with the mod loaded straight from this folder:
 
 ```sh
-claude --plugin-dir C:\dev\claude-mods-gs\<mod>
+claude --plugin-dir C:\Users\gal\Dropbox\DEV\claude-mods-gs\<mod>
 ```
