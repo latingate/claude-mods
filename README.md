@@ -26,7 +26,7 @@ Answer `y` to add the marketplace (only the first time), then choose the **user*
 From a shell: `claude plugin install <mod> --marketplace latingate/claude-mods`.
 In the desktop app: **+** next to the prompt box → **Plugins** → **Add marketplace** (`latingate/claude-mods`) → **Add plugin**.
 
-Each mod's own `INSTALL.md` has the details.
+Each mod's own `README.md` has the details.
 
 ## Disabling or removing a mod
 
@@ -64,8 +64,7 @@ claude-mods/
     ├── hooks/hooks.json
     ├── hooks/register.tsx
     ├── hooks/register.test.tsx
-    ├── README.md                  ← what it does and how
-    └── INSTALL.md                 ← how to install it
+    └── README.md                  ← what it does, how to install it, settings, how it works
 ```
 
 A mod needs at least:
@@ -108,7 +107,7 @@ Edit it here, raise `version` in its `plugin.json`, and push. Then, on each comp
 A mod can let each person pick their own settings, such as colours, by declaring them under `userConfig` in its `plugin.json`. yellow-prompt shows how.
 
 - **At install:** Claude Code shows a screen to set them.
-- **Any time after:** type `/config` at the Claude Code prompt, find the mod's rows, and change them. The change applies right away.
+- **Any time after:** type `/config` at the Claude Code prompt with nothing after it (with arguments it expects `key=value`), find the mod's rows, and change them. The change applies right away.
 - **By hand:** edit `~/.claude/settings.json` under `pluginConfigs` → `"<mod>@claude-mods"` → `options`, then run `/reload-plugins`.
 
 Settings are stored per computer and survive updates. See each mod's README for its settings.
