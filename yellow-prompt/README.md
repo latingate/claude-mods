@@ -1,6 +1,6 @@
 # yellow-prompt
 
-[![version](https://img.shields.io/badge/version-0.3.2-blue)](.claude-plugin/plugin.json)
+[![version](https://img.shields.io/badge/version-0.3.3-blue)](.claude-plugin/plugin.json)
 
 Makes the prompts you type easy to spot when you scroll back through a Claude Code conversation.
 
@@ -106,7 +106,7 @@ The first command fetches the marketplace and installs the new version. It repor
 
 ```
   ❯ yellow-prompt@claude-mods
-    Version: 0.3.2
+    Version: 0.3.3
     Scope: user
     Status: ✔ enabled
 ```
