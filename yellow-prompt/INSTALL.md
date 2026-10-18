@@ -35,19 +35,20 @@ In the desktop app, where `/plugin` doesn't run: click **+** next to the prompt 
 
 ## Updating
 
-After a new version is pushed (with `version` raised in `.claude-plugin/plugin.json`), run this on each computer:
+After a new version is pushed (with `version` raised in `.claude-plugin/plugin.json`), run these on each computer at the Claude Code prompt:
 
 ```
 /plugin marketplace update claude-mods
+/reload-plugins
 ```
 
-Then, from a shell:
+The first command fetches the marketplace and installs the new version. It reports `1 plugin bumped`. The second loads that version into the session you're in. New sessions load it by themselves. Your settings are kept across updates.
 
-```sh
-claude plugin update yellow-prompt
-```
+To check which version is installed, run `claude plugin list` from a shell.
 
-Finally, run `/reload-plugins` in any open session, or start a new one. Your settings are kept across updates.
+## Changing the colours and border
+
+See **Changing settings** in [README.md](README.md#changing-settings).
 
 ## Uninstalling
 

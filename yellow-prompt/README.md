@@ -49,11 +49,39 @@ Each person who installs the mod can choose their own colours and border:
 | **Border colour** (`borderColor`) | The box around sent prompts | Same as text colour | `yellow` |
 | **Border style** (`borderStyle`) | The shape of that box | `round`, `single`, `double`, `bold`, or `none` (no box, coloured text only) | `round` |
 
-**Where to set them:**
-- **At install:** right after the plugin details, Claude Code shows a screen with these settings. Press Enter to keep the defaults.
-- **Any time later:** open `/config` and find the yellow-prompt rows. A change applies right away, with no reinstall.
+At install, right after the plugin details, Claude Code shows a screen with these settings. Press Enter to keep the defaults.
 
-If a setting is left blank, the default is used. Your choices are stored in your own Claude Code settings, so updating the mod doesn't reset them.
+### Changing settings
+
+After the mod is installed, you can change the settings at any time.
+
+**In `/config` (easiest):**
+
+1. Type `/config` at the Claude Code prompt.
+2. Find the yellow-prompt rows: **Text colour**, **Border colour** and **Border style**. Type to filter the list if it's long.
+3. Select a row and change its value. Type a colour name or hex value for the colours, and pick from the list for the border style.
+
+The change applies right away, with no reinstall or reload. Your next prompt shows the new look.
+
+**In `settings.json` (by hand):** the values are stored in your user settings file, `~/.claude/settings.json` (on Windows: `C:\Users\<you>\.claude\settings.json`), under `pluginConfigs`:
+
+```json
+"pluginConfigs": {
+  "yellow-prompt@claude-mods": {
+    "options": {
+      "textColor": "cyan",
+      "borderColor": "#f5c518",
+      "borderStyle": "double"
+    }
+  }
+}
+```
+
+Leave out any setting you want at its default. After saving the file, run `/reload-plugins` or start a new session.
+
+**Back to the defaults:** clear the value in `/config`, or remove it from `settings.json`.
+
+If a setting is blank or invalid, the default is used. A border style other than the five listed counts as unset. Your choices live in your own Claude Code settings, so updating the mod never resets them, and each computer keeps its own.
 
 Colour names are the terminal's own, so their exact shade follows your terminal's colour scheme. A hex value gives the same shade everywhere.
 

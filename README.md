@@ -100,11 +100,18 @@ Before committing, make sure there are no keys, tokens or other secrets in the f
 
 Edit it here, raise `version` in its `plugin.json`, and push. Then, on each computer:
 
-1. Run `/plugin marketplace update claude-mods` at the Claude Code prompt.
-2. Run `claude plugin update <mod>` from a shell.
-3. Run `/reload-plugins` in any open session, or start a new one.
+1. Run `/plugin marketplace update claude-mods` at the Claude Code prompt. This fetches the marketplace and installs the new version of any mod it lists that's installed on the computer.
+2. Run `/reload-plugins` in any open session, or start a new one.
 
-A mod can let each person pick their own settings, such as colours, by declaring them under `userConfig` in its `plugin.json`. People set them at install and change them later in `/config`. yellow-prompt shows how.
+### Mod settings
+
+A mod can let each person pick their own settings, such as colours, by declaring them under `userConfig` in its `plugin.json`. yellow-prompt shows how.
+
+- **At install:** Claude Code shows a screen to set them.
+- **Any time after:** type `/config` at the Claude Code prompt, find the mod's rows, and change them. The change applies right away.
+- **By hand:** edit `~/.claude/settings.json` under `pluginConfigs` → `"<mod>@claude-mods"` → `options`, then run `/reload-plugins`.
+
+Settings are stored per computer and survive updates. See each mod's README for its settings.
 
 ### Trying changes before pushing
 
