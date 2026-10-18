@@ -85,5 +85,5 @@ Edit it here, raise `version` in its `plugin.json`, push, then run `/plugin mark
 Start a session with the mod loaded straight from this folder:
 
 ```sh
-claude --plugin-dir C:\Users\gal\claude-mods\<mod>
+claude --plugin-dir C:\dev\claude-mods-gs\<mod>
 ```
