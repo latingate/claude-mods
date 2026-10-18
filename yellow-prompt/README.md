@@ -45,8 +45,8 @@ Each person who installs the mod can choose their own colours and border:
 
 | Setting | What it changes | Values | Default |
 | --- | --- | --- | --- |
-| **Text colour** (`textColor`) | Your text in the prompt box and in sent prompts, including the `❯` marker | A colour name (`yellow`, `cyan`, `magenta`, `green`, `red`, `blue`, `white`, …) or a hex value like `#f5c518` | `yellow` |
-| **Border colour** (`borderColor`) | The box around sent prompts | Same as text colour | `yellow` |
+| **Text color** (`textColor`) | Your text in the prompt box and in sent prompts, including the `❯` marker | A colour name (`yellow`, `cyan`, `magenta`, `green`, `red`, `blue`, `white`, …) or a hex value like `#f5c518` | `yellow` |
+| **Border color** (`borderColor`) | The box around sent prompts | Same as text colour | `yellow` |
 | **Border style** (`borderStyle`) | The shape of that box | `round`, `single`, `double`, `bold`, or `none` (no box, coloured text only) | `round` |
 
 At install, right after the plugin details, Claude Code shows a screen with these settings. Press Enter to keep the defaults.
@@ -58,7 +58,7 @@ After the mod is installed, you can change the settings at any time.
 **In `/config` (easiest):**
 
 1. Type `/config` at the Claude Code prompt.
-2. Find the yellow-prompt rows: **Text colour**, **Border colour** and **Border style**. Type to filter the list if it's long.
+2. Find the yellow-prompt rows: **Text color**, **Border color** and **Border style**. Type to filter the list if it's long.
 3. Select a row and change its value. Type a colour name or hex value for the colours, and pick from the list for the border style.
 
 The change applies right away, with no reinstall or reload. Your next prompt shows the new look.
