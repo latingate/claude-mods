@@ -28,6 +28,21 @@ In the desktop app: **+** next to the prompt box → **Plugins** → **Add marke
 
 Each mod's own `INSTALL.md` has the details.
 
+## Disabling or removing a mod
+
+At the Claude Code prompt (or run `/plugin` with no arguments and manage it from the menu):
+
+| To | Run | Effect |
+| --- | --- | --- |
+| Turn it off for now | `/plugin disable <mod>` | The mod stays installed but stops loading. Turn it back on with `/plugin enable <mod>`. |
+| Remove it | `/plugin uninstall <mod>` | The mod is deleted from the computer. Install it again with `/plugin install <mod> --marketplace latingate/claude-mods`. |
+| Remove the whole marketplace | `/plugin marketplace remove claude-mods` | The computer forgets this repository and every mod installed from it. |
+
+From a shell, the same commands work without the slash: `claude plugin disable <mod>`, `claude plugin uninstall <mod>`.
+In the desktop app: **+** next to the prompt box → **Plugins**, then turn the mod off or remove it.
+
+These only change the computer you run them on. The repository and your other computers are untouched.
+
 ## Adding a new mod
 
 ### 1. Build it

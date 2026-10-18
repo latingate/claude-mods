@@ -10,6 +10,16 @@ Makes the prompts you type easy to spot when you scroll back through a Claude Co
 
 The repository is private, so the computer needs a GitHub login first. See [INSTALL.md](INSTALL.md) for the full steps.
 
+## Disable or remove
+
+| To | Run at the Claude Code prompt |
+| --- | --- |
+| Turn it off for now (stays installed) | `/plugin disable yellow-prompt` |
+| Turn it back on | `/plugin enable yellow-prompt` |
+| Remove it from this computer | `/plugin uninstall yellow-prompt` |
+
+From a shell, drop the slash: `claude plugin disable yellow-prompt`, `claude plugin uninstall yellow-prompt`. You can also run `/plugin` and manage it from the menu. Once it's off, your prompts go back to Claude Code's normal look. Each command only affects the computer you run it on.
+
 ## What it does
 
 - **While you type:** the text in the prompt box is drawn in yellow.
