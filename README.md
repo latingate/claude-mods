@@ -34,12 +34,17 @@ At the Claude Code prompt (or run `/plugin` with no arguments and manage it from
 
 | To | Run | Effect |
 | --- | --- | --- |
-| Turn it off for now | `/plugin disable <mod>` | The mod stays installed but stops loading. Turn it back on with `/plugin enable <mod>`. |
+| Turn it off for now | `/plugin disable <mod>` | The mod stays installed but stops loading. |
+| Turn it back on | `/plugin enable <mod>` | A disabled mod loads again, with nothing to reinstall. |
 | Remove it | `/plugin uninstall <mod>` | The mod is deleted from the computer. Install it again with `/plugin install <mod> --marketplace latingate/claude-mods`. |
 | Remove the whole marketplace | `/plugin marketplace remove claude-mods` | The computer forgets this repository and every mod installed from it. |
 
-From a shell, the same commands work without the slash: `claude plugin disable <mod>`, `claude plugin uninstall <mod>`.
-In the desktop app: **+** next to the prompt box → **Plugins**, then turn the mod off or remove it.
+To apply an enable or disable in the session you're in, run `/reload-plugins` afterwards. New sessions pick up the change by themselves.
+
+From the menu: run `/plugin`, go to the installed plugins, select the mod, and choose enable, disable or uninstall.
+
+From a shell, the same commands work without the slash: `claude plugin enable <mod>`, `claude plugin disable <mod>`, `claude plugin uninstall <mod>`.
+In the desktop app: **+** next to the prompt box → **Plugins**, then turn the mod on, off or remove it.
 
 These only change the computer you run them on. The repository and your other computers are untouched.
 

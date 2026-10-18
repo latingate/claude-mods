@@ -10,15 +10,19 @@ Makes the prompts you type easy to spot when you scroll back through a Claude Co
 
 The repository is private, so the computer needs a GitHub login first. See [INSTALL.md](INSTALL.md) for the full steps.
 
-## Disable or remove
+## Disable, re-enable or remove
 
 | To | Run at the Claude Code prompt |
 | --- | --- |
 | Turn it off for now (stays installed) | `/plugin disable yellow-prompt` |
-| Turn it back on | `/plugin enable yellow-prompt` |
+| Turn it back on after disabling | `/plugin enable yellow-prompt` |
 | Remove it from this computer | `/plugin uninstall yellow-prompt` |
 
-From a shell, drop the slash: `claude plugin disable yellow-prompt`, `claude plugin uninstall yellow-prompt`. You can also run `/plugin` and manage it from the menu. Once it's off, your prompts go back to Claude Code's normal look. Each command only affects the computer you run it on.
+After `enable` or `disable`, run `/reload-plugins` to apply it in the session you're in. New sessions pick it up by themselves. If you uninstalled it, `enable` won't bring it back: install it again with the line under **Install**.
+
+From the menu: run `/plugin`, go to the installed plugins, select `yellow-prompt`, and choose enable, disable or uninstall.
+
+From a shell, drop the slash: `claude plugin enable yellow-prompt`, `claude plugin disable yellow-prompt`, `claude plugin uninstall yellow-prompt`. Once it's off, your prompts go back to Claude Code's normal look. Each command only affects the computer you run it on.
 
 ## What it does
 
