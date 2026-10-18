@@ -106,7 +106,7 @@ The first command fetches the marketplace and installs the new version. It repor
 
 ```
   ❯ yellow-prompt@claude-mods
-    Version: 0.3.1
+    Version: 0.3.2
     Scope: user
     Status: ✔ enabled
 ```
