@@ -26,6 +26,8 @@ From a shell, drop the slash: `claude plugin enable yellow-prompt`, `claude plug
 
 ## What it does
 
+With the default settings:
+
 - **While you type:** the text in the prompt box is drawn in yellow.
 - **After you send:** each prompt you typed is shown in the transcript in yellow, with a `❯` marker, inside a thin yellow box with rounded corners:
 
@@ -37,17 +39,37 @@ From a shell, drop the slash: `claude plugin enable yellow-prompt`, `claude plug
 
 - **Everything else is unchanged:** messages that you didn't type (background task notifications, other agents, SDK messages) keep Claude Code's normal look. Only the display changes. The text that gets sent is exactly what you typed.
 
+## Settings
+
+Each person who installs the mod can choose their own colours and border:
+
+| Setting | What it changes | Values | Default |
+| --- | --- | --- | --- |
+| **Text colour** (`textColor`) | Your text in the prompt box and in sent prompts, including the `❯` marker | A colour name (`yellow`, `cyan`, `magenta`, `green`, `red`, `blue`, `white`, …) or a hex value like `#f5c518` | `yellow` |
+| **Border colour** (`borderColor`) | The box around sent prompts | Same as text colour | `yellow` |
+| **Border style** (`borderStyle`) | The shape of that box | `round`, `single`, `double`, `bold`, or `none` (no box, coloured text only) | `round` |
+
+**Where to set them:**
+- **At install:** right after the plugin details, Claude Code shows a screen with these settings. Press Enter to keep the defaults.
+- **Any time later:** open `/config` and find the yellow-prompt rows. A change applies right away, with no reinstall.
+
+If a setting is left blank, the default is used. Your choices are stored in your own Claude Code settings, so updating the mod doesn't reset them.
+
+Colour names are the terminal's own, so their exact shade follows your terminal's colour scheme. A hex value gives the same shade everywhere.
+
 ## How it works
 
-It's a Claude Code mod: a hooks module in `hooks/register.tsx`, loaded through `hooks/hooks.json`. It registers three hooks:
+It's a Claude Code mod: a hooks module in `hooks/register.tsx`, loaded through `hooks/hooks.json`.
+
+The settings are declared under `userConfig` in `.claude-plugin/plugin.json`. Claude Code passes their values to `register(on, options)`. The module reads `textColor`, `borderColor` and `borderStyle` from `options`, falling back to the defaults in `DEFAULTS` when a value is missing or blank. When a setting changes in `/config`, Claude Code reloads the module with the new values.
+
+It then registers three hooks:
 
 | Hook | What it does |
 | --- | --- |
-| `prompt.edit` | Runs on every keystroke or paste in the prompt box. It lets Claude Code apply the edit, then adds a decoration that paints the whole draft yellow. Decorations are paint only and never change the text. |
-| `prompt.fill` | Runs when a command or plugin puts text into the box. It adds the same yellow decoration to that text. |
-| `ui.render` on `UserMessage` | Runs when Claude Code draws a user message in the transcript. If the message came from the prompt box (`origin.kind === 'composer'`), it draws its own row: a yellow rounded `Box` holding a yellow `❯` and the message text. Any other message is passed on with `next(e)`, so Claude Code draws it as usual. |
-
-The colour is the constant `YELLOW` at the top of `register.tsx`. It's the terminal's named `yellow`, so the shade follows your terminal's colour scheme. Set it to a hex value such as `'#f5c518'` for a fixed shade.
+| `prompt.edit` | Runs on every keystroke or paste in the prompt box. It lets Claude Code apply the edit, then adds a decoration that paints the whole draft in the text colour. Decorations are paint only and never change the text. |
+| `prompt.fill` | Runs when a command or plugin puts text into the box. It adds the same decoration to that text. |
+| `ui.render` on `UserMessage` | Runs when Claude Code draws a user message in the transcript. If the message came from the prompt box (`origin.kind === 'composer'`), it draws its own row: a `Box` with the chosen border style and colour, holding a `❯` and the message text in the text colour. With border style `none`, the `Box` has no border. Any other message is passed on with `next(e)`, so Claude Code draws it as usual. |
 
 ## Limits
 

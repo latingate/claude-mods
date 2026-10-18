@@ -27,6 +27,7 @@ claude plugin install yellow-prompt --marketplace latingate/claude-mods
 
 - Answer `y` to **Add marketplace?** (`github:latingate/claude-mods`). This only happens the first time on each computer.
 - Pick the **user** scope, which is listed first, so the mod loads in every project.
+- On the settings screen, choose a text colour, border colour and border style, or press Enter to keep the defaults (yellow, yellow, round). You can change them later in `/config`. See **Settings** in [README.md](README.md).
 
 You'll see `Installed yellow-prompt. Plugin is now active.` It works right away in that session and loads by itself in every session after that.
 
@@ -34,11 +35,19 @@ In the desktop app, where `/plugin` doesn't run: click **+** next to the prompt 
 
 ## Updating
 
-After a new version is pushed (with `version` raised in `.claude-plugin/plugin.json`), refresh the marketplace on each computer:
+After a new version is pushed (with `version` raised in `.claude-plugin/plugin.json`), run this on each computer:
 
 ```
 /plugin marketplace update claude-mods
 ```
+
+Then, from a shell:
+
+```sh
+claude plugin update yellow-prompt
+```
+
+Finally, run `/reload-plugins` in any open session, or start a new one. Your settings are kept across updates.
 
 ## Uninstalling
 

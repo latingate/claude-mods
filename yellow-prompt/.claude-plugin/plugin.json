@@ -1,6 +1,27 @@
 {
   "name": "yellow-prompt",
-  "version": "0.2.0",
-  "description": "Draws your own prompts in yellow, in the prompt box and in the transcript",
-  "author": { "name": "latingate" }
+  "version": "0.3.0",
+  "description": "Draws your own prompts in colour (yellow by default), in the prompt box and in the transcript",
+  "author": { "name": "latingate" },
+  "userConfig": {
+    "textColor": {
+      "type": "string",
+      "title": "Text colour",
+      "description": "Colour of your prompts: a name (yellow, cyan, magenta, green...) or a hex value like #f5c518",
+      "default": "yellow"
+    },
+    "borderColor": {
+      "type": "string",
+      "title": "Border colour",
+      "description": "Colour of the box around your sent prompts: a name or a hex value",
+      "default": "yellow"
+    },
+    "borderStyle": {
+      "type": "string",
+      "title": "Border style",
+      "description": "Shape of the box around your sent prompts; none draws no box",
+      "options": ["round", "single", "double", "bold", "none"],
+      "default": "round"
+    }
+  }
 }

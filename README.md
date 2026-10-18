@@ -4,7 +4,7 @@ latingate's personal Claude Code mods. The repository is a plugin **marketplace*
 
 | Mod | What it does |
 | --- | --- |
-| [yellow-prompt](yellow-prompt/README.md) | Draws your own prompts in yellow, in the prompt box and in the transcript |
+| [yellow-prompt](yellow-prompt/README.md) | Draws your own prompts in colour (yellow by default, configurable), in the prompt box and in the transcript |
 
 ## Installing a mod on a computer
 
@@ -98,7 +98,13 @@ Before committing, make sure there are no keys, tokens or other secrets in the f
 
 ### Changing an existing mod
 
-Edit it here, raise `version` in its `plugin.json`, push, then run `/plugin marketplace update claude-mods` on each computer.
+Edit it here, raise `version` in its `plugin.json`, and push. Then, on each computer:
+
+1. Run `/plugin marketplace update claude-mods` at the Claude Code prompt.
+2. Run `claude plugin update <mod>` from a shell.
+3. Run `/reload-plugins` in any open session, or start a new one.
+
+A mod can let each person pick their own settings, such as colours, by declaring them under `userConfig` in its `plugin.json`. People set them at install and change them later in `/config`. yellow-prompt shows how.
 
 ### Trying changes before pushing
 
